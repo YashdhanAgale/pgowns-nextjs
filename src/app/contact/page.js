@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "Contact Us | PGOwns",
+  title: "Contact Us | PG owns",
   description:
-    "Get in touch with PGOwns. We are here to help tenants and PG owners with any questions.",
+    "Get in touch with PG owns. We are here to help tenants and PG owners with any questions.",
   alternates: { canonical: "https://www.pgowns.in/contact" },
 };
 
@@ -59,9 +59,9 @@ export default function ContactPage() {
             {
               icon: "📧",
               title: "Email Us",
-              value: "support@pgowns.in",
+              value: "pgownsconnect@gmail.com",
               desc: "We reply within 24 hours",
-              href: "mailto:support@pgowns.in",
+              href: "mailto:pgownsconnect@gmail.com",
             },
             {
               icon: "📍",
@@ -160,8 +160,8 @@ export default function ContactPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
               "How does the deposit safety guarantee work?",
-              "Is PGOwns free for tenants?",
-              "How do I list my PG on PGOwns?",
+              "Is PG owns free for tenants?",
+              "How do I list my PG on PG owns?",
               "What happens after I send an enquiry?",
             ].map((q) => (
               <div
@@ -204,14 +204,14 @@ export default function ContactPage() {
           >
             Can't find your answer? Email us at{" "}
             <a
-              href="mailto:support@pgowns.in"
+              href="mailto:pgownsconnect@gmail.com"
               style={{
                 color: "var(--color-primary)",
                 textDecoration: "none",
                 fontWeight: 600,
               }}
             >
-              support@pgowns.in
+              pgownsconnect@gmail.com
             </a>
           </p>
         </div>

@@ -49,7 +49,7 @@ export default function Navbar() {
           >
             <Image
               src="/logo.png"
-              alt="PGOwns"
+              alt="PG owns"
               width={32}
               height={32}
               style={{ objectFit: "contain", filter: "invert(1)" }}
