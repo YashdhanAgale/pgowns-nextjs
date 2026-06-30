@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Us | PGOwns",
+  title: "About Us | PG owns",
   description:
-    "PGOwns connects tenants to verified PGs with deposit safety guarantee. Learn about our mission to make PG renting safe and transparent.",
+    "PG owns connects tenants to verified PGs with deposit safety guarantee. Learn about our mission to make PG renting safe and transparent.",
   alternates: { canonical: "https://www.pgowns.in/about" },
 };
 
@@ -29,7 +29,7 @@ export default function AboutPage() {
               letterSpacing: "-0.02em",
             }}
           >
-            About PGOwns
+            About PG owns
           </h1>
           <p
             style={{
@@ -78,7 +78,7 @@ export default function AboutPage() {
           >
             Finding a PG in India is broken. Tenants deal with fake listings,
             hidden charges, and unfair deposit deductions every day. PG owners
-            struggle to find reliable tenants. PGOwns fixes this.
+            struggle to find reliable tenants. PG owns fixes this.
           </p>
           <p
             style={{
@@ -89,7 +89,7 @@ export default function AboutPage() {
             }}
           >
             We connect tenants directly with verified PG owners who have signed
-            our deposit safety agreement. Every listing on PGOwns is manually
+            our deposit safety agreement. Every listing on PG owns is manually
             verified before it goes live. Tenants browse and enquire for free —
             no broker fees, no commissions, no surprises.
           </p>

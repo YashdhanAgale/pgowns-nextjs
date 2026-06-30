@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ImageGallery from "@/components/pg/ImageGallery";
 import EnquiryButton from "@/components/pg/EnquiryButton";
-
+import TrackPGView from "@/components/analytics/trackPGView";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
 // ─── Data Fetching ────────────────────────────────────────────────────────────
@@ -25,7 +25,7 @@ async function fetchPG(id) {
 
 export async function generateMetadata({ params }) {
   const pg = await fetchPG(params.id);
-  if (!pg) return { title: "PG Not Found | PGOwns" };
+  if (!pg) return { title: "PG Not Found | PG owns" };
 
   const city = pg.location?.city || "India";
   const state = pg.location?.state || "";
@@ -37,8 +37,8 @@ export async function generateMetadata({ params }) {
         ? "Female"
         : "Co-ed";
 
-  const title = `PG in ${city}${state ? `, ${state}` : ""} — ${gender} PG${rent ? ` at ${rent}` : ""} | PGOwns`;
-  const description = `${gender} PG in ${city}${state ? `, ${state}` : ""}${rent ? ` at ${rent}` : ""}. Verified listing with deposit safety guarantee on PGOwns.`;
+  const title = `PG in ${city}${state ? `, ${state}` : ""} — ${gender} PG${rent ? ` at ${rent}` : ""} | PG owns`;
+  const description = `${gender} PG in ${city}${state ? `, ${state}` : ""}${rent ? ` at ${rent}` : ""}. Verified listing with deposit safety guarantee on PG owns.`;
   const imageUrl =
     pg.images?.[0]?.url || "https://www.pgowns.in/og-default.jpg";
 
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url: `https://www.pgowns.in/pg/${params.id}`,
-      siteName: "PGOwns",
+      siteName: "PG owns",
       images: [{ url: imageUrl, width: 1200, height: 630, alt: title }],
       type: "website",
     },
@@ -178,7 +178,12 @@ export default async function PGDetailPage({ params }) {
   return (
     <>
       <StructuredData pg={pg} id={params.id} />
-
+      <TrackPGView
+        pgId={params.id}
+        pgName={`PG in ${city}`}
+        city={city}
+        rent={pg.rent}
+      />
       <div
         style={{ background: "var(--color-background)", minHeight: "100vh" }}
       >
@@ -701,7 +706,7 @@ export default async function PGDetailPage({ params }) {
                         lineHeight: 1.6,
                       }}
                     >
-                      Every PG on PGOwns is vetted. Your deposit is protected —
+                      Every PG on PG owns is vetted. Your deposit is protected —
                       we only list owners who have signed our safety agreement.
                     </p>
                   </div>

@@ -29,7 +29,7 @@ export default function Footer() {
             margin: 0,
           }}
         >
-          © {new Date().getFullYear()} PGOwns. All rights reserved.
+          © {new Date().getFullYear()} PG owns. All rights reserved.
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
           <Link

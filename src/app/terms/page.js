@@ -1,42 +1,42 @@
 export const metadata = {
-  title: "Terms of Service | PGOwns",
+  title: "Terms of Service | PG owns",
   description:
-    "PGOwns terms of service — the rules and guidelines for using our platform.",
+    "PG owns terms of service — the rules and guidelines for using our platform.",
   alternates: { canonical: "https://www.pgowns.in/terms" },
 };
 
 const SECTIONS = [
   {
     title: "Acceptance of Terms",
-    content: `By accessing or using PGOwns, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform.`,
+    content: `By accessing or using PG owns, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our platform.`,
   },
   {
     title: "Use of Platform",
-    content: `PGOwns is a platform that connects tenants with PG owners. Tenants may browse listings and send enquiries for free. PG owners may list their properties after agreeing to our deposit safety agreement. You agree not to misuse our platform or use it for any unlawful purpose.`,
+    content: `PG owns is a platform that connects tenants with PG owners. Tenants may browse listings and send enquiries for free. PG owners may list their properties after agreeing to our deposit safety agreement. You agree not to misuse our platform or use it for any unlawful purpose.`,
   },
   {
     title: "Deposit Safety Agreement",
-    content: `Every PG owner listed on PGOwns has signed our deposit safety agreement. This agreement requires owners to return deposits fairly and transparently. While we facilitate this agreement, PGOwns is not directly liable for disputes between tenants and owners. We will, however, assist in mediation where possible.`,
+    content: `Every PG owner listed on PG owns has signed our deposit safety agreement. This agreement requires owners to return deposits fairly and transparently. While we facilitate this agreement, PG owns is not directly liable for disputes between tenants and owners. We will, however, assist in mediation where possible.`,
   },
   {
     title: "Listings and Accuracy",
-    content: `PG owners are responsible for ensuring their listings are accurate, up to date, and not misleading. PGOwns manually verifies listings before they go live but cannot guarantee complete accuracy of all information. Tenants are advised to verify details directly with owners before making any payments.`,
+    content: `PG owners are responsible for ensuring their listings are accurate, up to date, and not misleading. PG owns manually verifies listings before they go live but cannot guarantee complete accuracy of all information. Tenants are advised to verify details directly with owners before making any payments.`,
   },
   {
     title: "Prohibited Activities",
-    content: `You may not use PGOwns to post false or misleading listings, harass other users, attempt to bypass our verification process, or engage in any fraudulent activity. We reserve the right to suspend or terminate accounts that violate these terms.`,
+    content: `You may not use PG owns to post false or misleading listings, harass other users, attempt to bypass our verification process, or engage in any fraudulent activity. We reserve the right to suspend or terminate accounts that violate these terms.`,
   },
   {
     title: "Limitation of Liability",
-    content: `PGOwns is a facilitating platform and is not a party to any rental agreement between tenants and PG owners. We are not liable for any disputes, damages, or losses arising from rental agreements made through our platform.`,
+    content: `PG owns is a facilitating platform and is not a party to any rental agreement between tenants and PG owners. We are not liable for any disputes, damages, or losses arising from rental agreements made through our platform.`,
   },
   {
     title: "Changes to Terms",
-    content: `We may update these terms from time to time. Continued use of PGOwns after changes constitutes acceptance of the new terms. We will notify users of significant changes via email.`,
+    content: `We may update these terms from time to time. Continued use of PG owns after changes constitutes acceptance of the new terms. We will notify users of significant changes via email.`,
   },
   {
     title: "Contact",
-    content: `If you have questions about these terms, contact us at support@pgowns.in.`,
+    content: `If you have questions about these terms, contact us at pgownsconnect@gmail.com.`,
   },
 ];
 

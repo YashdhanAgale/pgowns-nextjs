@@ -1,14 +1,14 @@
 export const metadata = {
-  title: "Privacy Policy | PGOwns",
+  title: "Privacy Policy | PG owns",
   description:
-    "PGOwns privacy policy — how we collect, use, and protect your personal information.",
+    "PG owns privacy policy — how we collect, use, and protect your personal information.",
   alternates: { canonical: "https://www.pgowns.in/privacy-policy" },
 };
 
 const SECTIONS = [
   {
     title: "Information We Collect",
-    content: `When you use PGOwns, we collect information you provide directly to us, such as your name, email address, and phone number when you create an account or send an enquiry. We also collect information about how you use our platform, including pages visited and searches made.`,
+    content: `When you use PG owns, we collect information you provide directly to us, such as your name, email address, and phone number when you create an account or send an enquiry. We also collect information about how you use our platform, including pages visited and searches made.`,
   },
   {
     title: "How We Use Your Information",
@@ -28,11 +28,11 @@ const SECTIONS = [
   },
   {
     title: "Your Rights",
-    content: `You have the right to access, update, or delete your personal information at any time. You can do this through your account settings or by contacting us at support@pgowns.in.`,
+    content: `You have the right to access, update, or delete your personal information at any time. You can do this through your account settings or by contacting us at pgownsconnect@gmail.com.`,
   },
   {
     title: "Contact Us",
-    content: `If you have any questions about this Privacy Policy, please contact us at support@pgowns.in.`,
+    content: `If you have any questions about this Privacy Policy, please contact us at pgownsconnect@gmail.com.`,
   },
 ];
 

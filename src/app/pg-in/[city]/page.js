@@ -26,14 +26,14 @@ export async function generateMetadata({ params }) {
   const cityName = city.charAt(0).toUpperCase() + city.slice(1);
 
   return {
-    title: `PG in ${cityName} — Verified PGs with Deposit Safety | PGOwns`,
+    title: `PG in ${cityName} — Verified PGs with Deposit Safety | PG owns`,
     description: `Find verified PGs in ${cityName} with deposit safety guarantee. Browse affordable paying guest accommodations in ${cityName}. No broker fees for tenants.`,
     alternates: { canonical: `https://www.pgowns.in/pg-in/${city}` },
     openGraph: {
-      title: `PG in ${cityName} | PGOwns`,
+      title: `PG in ${cityName} | PG owns`,
       description: `Verified PGs in ${cityName} with deposit safety guarantee.`,
       url: `https://www.pgowns.in/pg-in/${city}`,
-      siteName: "PGOwns",
+      siteName: "PG owns",
       type: "website",
     },
   };
@@ -85,7 +85,7 @@ function StructuredData({ city, pgs }) {
         name: `How to find a good PG in ${cityName}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Use PGOwns to browse verified PGs in ${cityName}. Every listing is manually verified and the owner has signed a deposit safety agreement. You can filter by gender, budget, and availability.`,
+          text: `Use PG owns to browse verified PGs in ${cityName}. Every listing is manually verified and the owner has signed a deposit safety agreement. You can filter by gender, budget, and availability.`,
         },
       },
       {
@@ -101,7 +101,7 @@ function StructuredData({ city, pgs }) {
         name: `Is deposit safe when booking a PG in ${cityName}?`,
         acceptedAnswer: {
           "@type": "Answer",
-          text: `On PGOwns, every PG owner signs a deposit safety agreement before listing. This means your deposit is legally protected and must be returned fairly at the end of your stay.`,
+          text: `On PG owns, every PG owner signs a deposit safety agreement before listing. This means your deposit is legally protected and must be returned fairly at the end of your stay.`,
         },
       },
     ],
@@ -131,7 +131,7 @@ function getFAQs(cityName) {
   return [
     {
       q: `How to find a good PG in ${cityName}?`,
-      a: `Browse PGOwns for verified PGs in ${cityName}. Every listing is manually verified and owners have signed a deposit safety agreement. Filter by gender, budget, and availability to find the perfect match.`,
+      a: `Browse PG owns for verified PGs in ${cityName}. Every listing is manually verified and owners have signed a deposit safety agreement. Filter by gender, budget, and availability to find the perfect match.`,
     },
     {
       q: `What is the average PG rent in ${cityName}?`,
@@ -139,15 +139,15 @@ function getFAQs(cityName) {
     },
     {
       q: `Is my deposit safe when booking a PG in ${cityName}?`,
-      a: `Yes — on PGOwns, every PG owner signs a deposit safety agreement before listing. Your deposit is legally protected and must be returned fairly at the end of your stay.`,
+      a: `Yes — on PG owns, every PG owner signs a deposit safety agreement before listing. Your deposit is legally protected and must be returned fairly at the end of your stay.`,
     },
     {
       q: `Are there any broker fees for tenants in ${cityName}?`,
-      a: `PGOwns is completely free for tenants. Browse, enquire, and move in without paying any platform fees or broker commissions.`,
+      a: `PG owns is completely free for tenants. Browse, enquire, and move in without paying any platform fees or broker commissions.`,
     },
     {
       q: `What amenities do PGs in ${cityName} offer?`,
-      a: `PGs in ${cityName} listed on PGOwns offer amenities like WiFi, AC, meals, hot water, laundry, power backup, CCTV, parking, and more. Each listing clearly mentions available amenities.`,
+      a: `PGs in ${cityName} listed on PG owns offer amenities like WiFi, AC, meals, hot water, laundry, power backup, CCTV, parking, and more. Each listing clearly mentions available amenities.`,
     },
   ];
 }
@@ -450,7 +450,7 @@ export default async function CityPage({ params }) {
                 }}
               >
                 Finding a reliable PG in {cityName} can be challenging — from
-                fake listings to unfair deposit deductions. PGOwns solves this
+                fake listings to unfair deposit deductions. PG owns solves this
                 by listing only verified PGs whose owners have signed a deposit
                 safety agreement.
               </p>
@@ -476,7 +476,7 @@ export default async function CityPage({ params }) {
                 }}
               >
                 Whether you are a student, working professional, or someone new
-                to {cityName}, PGOwns helps you find a safe and comfortable home
+                to {cityName}, PG owns helps you find a safe and comfortable home
                 away from home.
               </p>
             </div>
@@ -492,7 +492,7 @@ export default async function CityPage({ params }) {
                 color: "var(--color-text-primary)",
               }}
             >
-              Why choose PGOwns in {cityName}?
+              Why choose PG owns in {cityName}?
             </h2>
             <div
               style={{
@@ -521,7 +521,7 @@ export default async function CityPage({ params }) {
                 {
                   icon: "₹",
                   title: "Free for Tenants",
-                  desc: "PGOwns is 100% free for tenants. Browse and enquire without paying any platform fee.",
+                  desc: "PG owns is 100% free for tenants. Browse and enquire without paying any platform fee.",
                 },
               ].map((item) => (
                 <div

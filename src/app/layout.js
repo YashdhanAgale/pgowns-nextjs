@@ -1,9 +1,11 @@
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieBanner from "@/components/CookieBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata = {
-  title: "PGOwns — Verified PGs with Deposit Safety",
+  title: "PG owns — Verified PGs with Deposit Safety",
   description:
     "Find verified PGs in Pune and Mumbai with deposit safety guarantee. Browse, enquire, and move in with confidence.",
 };
@@ -15,6 +17,8 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main style={{ flex: 1, width: "100%" }}>{children}</main>
         <Footer />
+        <CookieBanner />
+        <GoogleAnalytics />
       </body>
     </html>
   );
