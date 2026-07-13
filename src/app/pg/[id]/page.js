@@ -167,6 +167,7 @@ export default async function PGDetailPage({ params }) {
 
   const city = pg.location?.city || "India";
   const state = pg.location?.state || "";
+  const area = pg.location?.area || "";
   const sharingTypes = pg.sharingType
     ? pg.sharingType.split(",").map((s) => s.trim())
     : [];
@@ -343,7 +344,8 @@ export default async function PGDetailPage({ params }) {
                     margin: 0,
                   }}
                 >
-                  PG Accommodation in {city}
+                  PG Accommodation in {area ? `${area}, ` : ""}
+                  {city}
                   {state && (
                     <span
                       style={{
@@ -620,6 +622,7 @@ export default async function PGDetailPage({ params }) {
                       color: "var(--color-text-primary)",
                     }}
                   >
+                    {area ? `${area}, ` : ""}
                     {city}
                     {state && `, ${state}`}
                   </span>
@@ -805,6 +808,7 @@ export default async function PGDetailPage({ params }) {
                         color: "var(--color-text-secondary)",
                       }}
                     >
+                      {area ? `${area}, ` : ""}
                       {city}
                       {state && `, ${state}`}
                     </p>
