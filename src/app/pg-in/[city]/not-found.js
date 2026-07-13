@@ -37,7 +37,7 @@ export default function PGNotFound() {
             margin: "0 0 10px",
           }}
         >
-          PG Not Found
+          City Not Found
         </h1>
         <p
           style={{
@@ -47,7 +47,7 @@ export default function PGNotFound() {
             margin: "0 0 28px",
           }}
         >
-          This listing may no longer be available or the link might be
+          We don't have PG listings in this city yet, or the link might be
           incorrect.
         </p>
         <Link
