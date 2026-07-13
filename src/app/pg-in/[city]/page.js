@@ -1,7 +1,10 @@
 import Link from "next/link";
 import PGCard from "@/components/pg/PGCard";
+import { notFound } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+
+const SUPPORTED_CITIES = ["pune", "mumbai", "navi-mumbai"];
 
 // ─── Data Fetching ────────────────────────────────────────────────────────────
 
@@ -156,6 +159,7 @@ function getFAQs(cityName) {
 
 export default async function CityPage({ params }) {
   const city = decodeURIComponent(params.city);
+  if (!SUPPORTED_CITIES.includes(city.toLowerCase())) notFound();
   const cityName = city.charAt(0).toUpperCase() + city.slice(1);
   const { pgs, total } = await fetchCityPGs(city);
   const faqs = getFAQs(cityName);
@@ -476,8 +480,8 @@ export default async function CityPage({ params }) {
                 }}
               >
                 Whether you are a student, working professional, or someone new
-                to {cityName}, PG owns helps you find a safe and comfortable home
-                away from home.
+                to {cityName}, PG owns helps you find a safe and comfortable
+                home away from home.
               </p>
             </div>
           </div>
