@@ -26,18 +26,6 @@ const CITIES = [
     areas: "Andheri · Thane · Powai · Goregaon",
     emoji: "🏢",
   },
-  {
-    name: "Kolhapur",
-    slug: "kolhapur",
-    areas: "Tarabai Park · Rajarampuri · Kasba",
-    emoji: "🏛️",
-  },
-  {
-    name: "Indore",
-    slug: "indore",
-    areas: "Vijay Nagar · Palasia · AB Road",
-    emoji: "🌇",
-  },
 ];
 
 export default function CitiesSection() {

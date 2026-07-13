@@ -906,7 +906,9 @@ export default async function PGDetailPage({ params }) {
                 </span>
               </p>
             </div>
-            <EnquiryButton isFull={isFull} />
+            <div style={{ flexShrink: 0, width: 150 }}>
+              <EnquiryButton isFull={isFull} />
+            </div>
           </div>
         </div>
       </div>
