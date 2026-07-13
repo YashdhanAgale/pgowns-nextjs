@@ -136,6 +136,7 @@ export default function PGCard({ pg }) {
                 <circle cx="12" cy="10" r="3" />
               </svg>
               <span style={{ fontWeight: 500 }}>
+                {pg.location?.area ? `${pg.location.area}, ` : ""}
                 {pg.location?.city}, {pg.location?.state}
               </span>
             </div>
