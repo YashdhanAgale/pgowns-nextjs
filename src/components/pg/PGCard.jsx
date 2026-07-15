@@ -94,14 +94,17 @@ export default function PGCard({ pg }) {
           </div>
         </Link>
 
-        {/* Card Body */}
-        <div
+      {/* Card Body */}
+        <Link
+          href={`/pg/${pg._id}`}
           style={{
             padding: "16px 18px 18px",
             display: "flex",
             flexDirection: "column",
             gap: 12,
             flex: 1,
+            textDecoration: "none",
+            color: "inherit",
           }}
         >
           {/* Location + Availability */}
@@ -170,7 +173,9 @@ export default function PGCard({ pg }) {
                 letterSpacing: "-0.02em",
               }}
             >
-              ₹{pg.rent?.toLocaleString("en-IN")}
+              {pg.sharingOptions && pg.sharingOptions.length > 1
+                ? `₹${Math.min(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")} – ₹${Math.max(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}`
+                : `₹${pg.rent?.toLocaleString("en-IN")}`}
             </span>
             <span
               style={{
@@ -233,7 +238,11 @@ export default function PGCard({ pg }) {
 
           {/* Send Enquiry Button */}
           <button
-            onClick={() => !isFull && setShowModal(true)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (!isFull) setShowModal(true);
+            }}
             disabled={isFull}
             style={{
               marginTop: "auto",
@@ -258,10 +267,10 @@ export default function PGCard({ pg }) {
             onMouseLeave={(e) => {
               e.currentTarget.style.opacity = "1";
             }}
-          >
+         >
             {isFull ? "Currently Full" : "Send Enquiry"}
           </button>
-        </div>
+        </Link>
       </div>
 
       {showModal && <LoginModal onClose={() => setShowModal(false)} />}
