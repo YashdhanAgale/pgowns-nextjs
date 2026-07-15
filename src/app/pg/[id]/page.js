@@ -29,7 +29,12 @@ export async function generateMetadata({ params }) {
 
   const city = pg.location?.city || "India";
   const state = pg.location?.state || "";
-  const rent = pg.rent ? `₹${pg.rent.toLocaleString("en-IN")}/mo` : "";
+  const rent =
+    pg.sharingOptions && pg.sharingOptions.length > 1
+      ? `₹${Math.min(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}–₹${Math.max(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}/mo`
+      : pg.rent
+        ? `₹${pg.rent.toLocaleString("en-IN")}/mo`
+        : "";
   const gender =
     pg.genderPreference === "male"
       ? "Male"
@@ -77,9 +82,12 @@ function StructuredData({ pg, id }) {
       pg.description || `Paying Guest accommodation in ${city}, ${state}`,
     url: `https://www.pgowns.in/pg/${id}`,
     image: pg.images?.map((img) => img.url) || [],
-    priceRange: pg.rent
-      ? `₹${pg.rent.toLocaleString("en-IN")}/month`
-      : undefined,
+    priceRange:
+      pg.sharingOptions && pg.sharingOptions.length > 1
+        ? `₹${Math.min(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")} - ₹${Math.max(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}`
+        : pg.rent
+          ? `₹${pg.rent.toLocaleString("en-IN")}/month`
+          : undefined,
     address: {
       "@type": "PostalAddress",
       addressLocality: city,
@@ -159,6 +167,13 @@ const GENDER_COLOR = {
   any: "#10b981",
 };
 
+const SHARING_TYPE_LABEL = {
+  single: "Single",
+  double: "Double",
+  triple: "Triple",
+  four: "4",
+  five: "5",
+};
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default async function PGDetailPage({ params }) {
@@ -168,9 +183,6 @@ export default async function PGDetailPage({ params }) {
   const city = pg.location?.city || "India";
   const state = pg.location?.state || "";
   const area = pg.location?.area || "";
-  const sharingTypes = pg.sharingType
-    ? pg.sharingType.split(",").map((s) => s.trim())
-    : [];
 
   const genderColor = GENDER_COLOR[pg.genderPreference] || GENDER_COLOR.any;
   const genderLabel = GENDER_LABEL[pg.genderPreference] || "Any gender";
@@ -373,7 +385,9 @@ export default async function PGDetailPage({ params }) {
                       color: "var(--color-text-primary)",
                     }}
                   >
-                    ₹{pg.rent?.toLocaleString("en-IN") || "—"}
+                    {pg.sharingOptions && pg.sharingOptions.length > 1
+                      ? `₹${Math.min(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")} – ₹${Math.max(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}`
+                      : `₹${pg.rent?.toLocaleString("en-IN") || "—"}`}
                   </span>
                   <span
                     style={{
@@ -386,31 +400,68 @@ export default async function PGDetailPage({ params }) {
                   </span>
                 </div>
 
-                {sharingTypes.length > 0 && (
+                {pg.sharingOptions && pg.sharingOptions.length > 0 && (
                   <div
                     style={{
-                      marginTop: 12,
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 8,
+                      marginTop: 16,
+                      paddingTop: 16,
+                      borderTop: "1px solid var(--color-border)",
                     }}
                   >
-                    {sharingTypes.map((s) => (
-                      <span
-                        key={s}
-                        style={{
-                          padding: "3px 10px",
-                          borderRadius: 999,
-                          background: "var(--color-background)",
-                          border: "1px solid var(--color-border)",
-                          color: "var(--color-text-secondary)",
-                          fontSize: 12,
-                          fontWeight: 500,
-                        }}
-                      >
-                        {s} Sharing
-                      </span>
-                    ))}
+                    <p
+                      style={{
+                        margin: "0 0 10px",
+                        fontSize: 12,
+                        fontWeight: 700,
+                        color: "var(--color-text-secondary)",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.06em",
+                      }}
+                    >
+                      Sharing Options
+                    </p>
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns:
+                          "repeat(auto-fill, minmax(140px, 1fr))",
+                        gap: 8,
+                      }}
+                    >
+                      {pg.sharingOptions.map((o) => (
+                        <div
+                          key={o.type}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: 2,
+                            padding: "10px 12px",
+                            borderRadius: 10,
+                            background: "var(--color-background)",
+                            border: "1px solid var(--color-border)",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: 12,
+                              fontWeight: 600,
+                              color: "var(--color-text-secondary)",
+                            }}
+                          >
+                            {SHARING_TYPE_LABEL[o.type] || o.type} Sharing
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 15,
+                              fontWeight: 800,
+                              color: "var(--color-text-primary)",
+                            }}
+                          >
+                            ₹{o.rent.toLocaleString("en-IN")}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -799,7 +850,10 @@ export default async function PGDetailPage({ params }) {
                         color: "var(--color-text-primary)",
                       }}
                     >
-                      ₹{pg.rent?.toLocaleString("en-IN")}/month
+                      {pg.sharingOptions && pg.sharingOptions.length > 1
+                        ? `₹${Math.min(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")} – ₹${Math.max(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}`
+                        : `₹${pg.rent?.toLocaleString("en-IN")}`}
+                      /month
                     </p>
                     <p
                       style={{
@@ -898,7 +952,9 @@ export default async function PGDetailPage({ params }) {
                   lineHeight: 1.2,
                 }}
               >
-                ₹{pg.rent?.toLocaleString("en-IN") || "—"}
+                {pg.sharingOptions && pg.sharingOptions.length > 1
+                  ? `₹${Math.min(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}–₹${Math.max(...pg.sharingOptions.map((o) => o.rent)).toLocaleString("en-IN")}`
+                  : `₹${pg.rent?.toLocaleString("en-IN") || "—"}`}
                 <span
                   style={{
                     fontSize: 11,
