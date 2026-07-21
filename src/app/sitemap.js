@@ -19,9 +19,10 @@ export default async function sitemap() {
   // ── Fetch all PGs ──
   let pgPages = [];
   let cityPages = [];
+  let areaPages = [];
 
   try {
-    const res = await fetch(`${API}/pgs?limit=20`, {
+    const res = await fetch(`${API}/pgs?limit=100`, {
       next: { revalidate: 3600 },
     });
     const data = await res.json();
@@ -51,9 +52,35 @@ export default async function sitemap() {
       changeFrequency: "daily",
       priority: 0.9,
     }));
+
+    const areaCombos = [
+      ...new Set(
+        pgs
+          .filter((pg) => pg.location?.area?.trim())
+          .map((pg) => {
+            const c = pg.location.city
+              .toLowerCase()
+              .trim()
+              .replace(/\s+/g, "-");
+            const a = pg.location.area
+              .toLowerCase()
+              .trim()
+              .replace(/\s+/g, "-");
+            return `${c}|${a}`;
+          }),
+      ),
+    ];
+    areaPages = areaCombos.map((combo) => {
+      const [city, area] = combo.split("|");
+      return {
+        url: `${BASE_URL}/pg-in/${city}/${area}`,
+        changeFrequency: "daily",
+        priority: 0.85,
+      };
+    });
   } catch {
     // If API fails, sitemap still works with static pages
   }
 
-  return [...staticPages, ...cityPages, ...pgPages];
+  return [...staticPages, ...cityPages, ...areaPages, ...pgPages];
 }

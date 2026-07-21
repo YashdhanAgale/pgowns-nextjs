@@ -6,9 +6,10 @@ import FeaturesSection from "@/components/home/FeaturesSection";
 import CTASection from "@/components/home/CTASection";
 
 export const metadata = {
-  title: "PG in Pune & Navi Mumbai | Verified PGs with Deposit Safety — PG owns",
+  title:
+    "PG in Pune & Navi Mumbai | Verified PGs with Deposit Safety — PG owns",
   description:
-    "Find verified PGs in Pune and Navi Mumbai with deposit safety guaranteed. Browse PGs in Hinjawadi, Kharadi, Vashi and more. Free for tenants, no broker fees.",
+    "Find verified PGs in Pune and Navi Mumbai with deposit safety guaranteed. Browse PGs in Baner, Kharadi, Vashi and more. Free for tenants, no broker fees.",
   alternates: { canonical: "https://www.pgowns.in" },
   openGraph: {
     title: "PG in Pune & Navi Mumbai | Verified PGs — PG owns",

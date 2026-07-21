@@ -11,7 +11,7 @@ const CITIES = [
   {
     name: "Pune",
     slug: "pune",
-    areas: "Hinjawadi · Kharadi · Wakad · Baner",
+    areas: "Kharadi · Baner",
     emoji: "🏙️",
   },
   {
