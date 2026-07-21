@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PGCard from "@/components/pg/PGCard";
 import { notFound } from "next/navigation";
+import { SUPPORTED_AREAS, toTitle } from "@/lib/areas";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -352,6 +353,34 @@ export default async function CityPage({ params }) {
                   View all cities →
                 </Link>
               </div>
+              {SUPPORTED_AREAS[city.toLowerCase()] && (
+                <div
+                  style={{
+                    marginBottom: 20,
+                    display: "flex",
+                    gap: 8,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  {SUPPORTED_AREAS[city.toLowerCase()].map((area) => (
+                    <Link
+                      key={area}
+                      href={`/pg-in/${city.toLowerCase()}/${area}`}
+                      style={{
+                        padding: "6px 14px",
+                        borderRadius: 999,
+                        border: "1px solid var(--color-border)",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: "var(--color-text-primary)",
+                        textDecoration: "none",
+                      }}
+                    >
+                      PG in {toTitle(area)}
+                    </Link>
+                  ))}
+                </div>
+              )}
               <div
                 style={{
                   display: "grid",
